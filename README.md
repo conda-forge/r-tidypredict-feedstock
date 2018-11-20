@@ -14,9 +14,8 @@ Summary: It parses a fitted 'R' model object, and returns a formula in 'Tidy Eva
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-tidypredict-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-tidypredict-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/r-tidypredict-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-tidypredict-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-tidypredict-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-tidypredict-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/r-tidypredict-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/r-tidypredict-feedstock)
 
 Current release info
 ====================
