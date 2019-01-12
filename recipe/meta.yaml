@@ -1,4 +1,4 @@
-{% set version = '0.2.0' %}
+{% set version = '0.3.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,37 +7,34 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: tidypredict_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/tidypredict_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tidypredict/tidypredict_{{ version }}.tar.gz
-  sha256: 73040bd951f630fcfb3787c2365c803e088a78615600b7713a860ca1d4ef09c3
+  sha256: 0660d62855ff52b6b59353de5d84fe5c216a651514a3bacd7f469b93563212b0
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
   number: 1000
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{posix}}zip               # [win]
+
   host:
     - r-base
     - r-dplyr >=0.7
+    - r-knitr
     - r-purrr
     - r-rlang
-    - r-tibble
-    - r-tidyr
   run:
     - r-base
     - r-dplyr >=0.7
+    - r-knitr
     - r-purrr
     - r-rlang
-    - r-tibble
-    - r-tidyr
 
 test:
   commands:
@@ -50,15 +47,31 @@ about:
   summary: 'It parses a fitted ''R'' model object, and returns a formula in ''Tidy Eval'' code
     that calculates the predictions. It works with several databases back-ends because
     it leverages ''dplyr'' and ''dbplyr'' for the final ''SQL'' translation of the algorithm.
-    It currently supports lm(), glm(), randomForest() and ranger() models. '
+    It currently supports lm(), glm(), randomForest(), ranger() and earth() models. '
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+    - conda-forge/r
+    - philip-khor
+
+# Package: tidypredict
+# Version: 0.3.0
+# Title: Run Predictions Inside the Database
+# Description: It parses a fitted 'R' model object, and returns a formula in 'Tidy Eval' code that calculates the predictions. It works with several databases back-ends because it leverages 'dplyr' and 'dbplyr' for the final 'SQL' translation of the algorithm. It currently supports lm(), glm(), randomForest(), ranger() and earth() models.
+# Authors@R:  person("Edgar", "Ruiz", email = "edgar@rstudio.com", role = c("aut", "cre"))
+# Depends: R (>= 3.1)
+# Imports: dplyr(>= 0.7), rlang, purrr, knitr
+# Suggests: dbplyr, testthat, randomForest, ranger, earth, rmarkdown, nycflights13, RSQLite, methods, DBI, covr
+# License: GPL-3
+# URL: http://tidypredict.netlify.com/
+# BugReports: https://github.com/edgararuiz/tidypredict/issues
+# RoxygenNote: 6.1.1
+# Encoding: UTF-8
+# NeedsCompilation: no
+# Packaged: 2019-01-10 01:04:26 UTC; edgar
+# Author: Edgar Ruiz [aut, cre]
+# Maintainer: Edgar Ruiz <edgar@rstudio.com>
+# Repository: CRAN
+# Date/Publication: 2019-01-10 07:00:03 UTC
