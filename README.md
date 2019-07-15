@@ -1,13 +1,13 @@
 About r-tidypredict
 ===================
 
-Home: http://tidypredict.netlify.com/
+Home: https://tidymodels.github.io/tidypredict
 
 Package license: GPL-3
 
 Feedstock license: BSD 3-Clause
 
-Summary: It parses a fitted 'R' model object, and returns a formula in 'Tidy Eval' code that calculates the predictions. It works with several databases back-ends because it leverages 'dplyr' and 'dbplyr' for the final 'SQL' translation of the algorithm. It currently supports lm(), glm(), randomForest(), ranger() and earth() models. 
+Summary: It parses a fitted 'R' model object, and returns a formula in 'Tidy Eval' code that calculates the predictions. It works with several databases back-ends because it leverages 'dplyr' and 'dbplyr' for the final 'SQL' translation of the algorithm. It currently supports lm(), glm(), randomForest(), ranger(), earth(), xgb.Booster.complete(), cubist(), and ctree() models. 
 
 
 
