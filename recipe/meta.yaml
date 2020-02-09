@@ -1,4 +1,4 @@
-{% set version = '0.4.3' %}
+{% set version = "0.4.4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tidypredict_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tidypredict/tidypredict_{{ version }}.tar.gz
-  sha256: 992df00a70f5a786b4aaba975fbc928d37194efba3a50ab3632fc7315a26c1d6
+  sha256: a288ebe0c8b148e89fe0602e330423d75e46a0e177e6579dbb9281d42e61b931
 
 build:
   merge_build_host: True  # [win]
