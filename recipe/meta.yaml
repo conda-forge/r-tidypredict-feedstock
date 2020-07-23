@@ -1,4 +1,4 @@
-{% set version = "0.4.5" %}
+{% set version = "0.4.6" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tidypredict_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tidypredict/tidypredict_{{ version }}.tar.gz
-  sha256: e4d578bb43f44b814d06595134201e93bd8fee8ce92736ebbc8b9b2fb9a1dfc4
+  sha256: 3e4eddd6661a62c0168cd9ff238743ae4d85e737e2853484e776f8ec50b6a1bb
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -48,14 +48,11 @@ test:
 about:
   home: https://tidymodels.github.io/tidypredict
   license: GPL-3
-  summary: 'It parses a fitted ''R'' model object, and returns a formula in ''Tidy Eval'' code
-    that calculates the predictions. It works with several databases back-ends because
-    it leverages ''dplyr'' and ''dbplyr'' for the final ''SQL'' translation of the algorithm.
-    It currently supports lm(), glm(), randomForest(), ranger(), earth(), xgb.Booster.complete(),
-    cubist(), and ctree() models. '
+  summary: "It parses a fitted 'R' model object, and returns a formula in 'Tidy Eval' code that calculates the predictions. It works with several databases back-ends because it leverages 'dplyr' and 'dbplyr' for the final 'SQL' translation of the algorithm. It currently supports lm(), glm(), randomForest(), ranger(), earth(),\
+    \ xgb.Booster.complete(), cubist(), and ctree() models. "
   license_family: GPL3
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
