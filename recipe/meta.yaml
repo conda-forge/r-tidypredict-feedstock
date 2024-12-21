@@ -1,4 +1,4 @@
-{% set version = "0.5" %}
+{% set version = "0.5.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tidypredict_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tidypredict/tidypredict_{{ version }}.tar.gz
-  sha256: fee172aef92f75b0aac70380094a3b1001e0a88e4ba68871da064aee4c7d05c0
+  sha256: 2bc6f42716647acb1c96f1998e182f8ef685077fd3efe5023a9230fa50796330
 
 build:
-  number: 2
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -23,27 +23,27 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
+    - r-cli
     - r-dplyr >=0.7
     - r-generics
     - r-knitr
     - r-purrr
-    - r-rlang
-    - r-stringr
+    - r-rlang >=1.1.1
     - r-tibble
     - r-tidyr
   run:
     - r-base
+    - r-cli
     - r-dplyr >=0.7
     - r-generics
     - r-knitr
     - r-purrr
-    - r-rlang
-    - r-stringr
+    - r-rlang >=1.1.1
     - r-tibble
     - r-tidyr
   run_constrained:
     - r-earth >=5.1.2
-    - r-testthat >=3.0.0
+    - r-testthat >=3.2.0
 
 test:
   commands:
@@ -52,35 +52,15 @@ test:
 
 about:
   home: https://tidymodels.github.io/tidypredict
-  license: GPL-3.0-only
-  summary: "It parses a fitted 'R' model object, and returns a formula in 'Tidy Eval' code that calculates the predictions. It works with several databases back-ends because it leverages 'dplyr' and 'dbplyr' for the final 'SQL' translation of the algorithm. It currently supports lm(), glm(), randomForest(), ranger(), earth(),\
-    \ xgb.Booster.complete(), cubist(), and ctree() models. "
-  license_family: GPL3
+  license: MIT
+  summary: "It parses a fitted 'R' model object, and returns a formula in 'Tidy Eval' code that calculates the predictions. It works with several databases back-ends because it leverages 'dplyr' and 'dbplyr' for the final 'SQL' translation of the algorithm. It currently supports lm(), glm(), randomForest(), ranger(), earth(),
+    xgb.Booster.complete(), cubist(), and ctree() models. "
+  license_family: MIT
   license_file:
-    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - philip-khor
-
-# Package: tidypredict
-# Version: 0.4.3
-# Title: Run Predictions Inside the Database
-# Description: It parses a fitted 'R' model object, and returns a formula in 'Tidy Eval' code that calculates the predictions. It works with several databases back-ends because it leverages 'dplyr' and 'dbplyr' for the final 'SQL' translation of the algorithm. It currently supports lm(), glm(), randomForest(), ranger(), earth(), xgb.Booster.complete(), cubist(), and ctree() models.
-# Authors@R:  person("Edgar", "Ruiz", email = "edgar@rstudio.com", role = c("aut", "cre"))
-# Depends: R (>= 3.1)
-# Imports: dplyr (>= 0.7), rlang, purrr, knitr, generics, tibble
-# Suggests: dbplyr, testthat (>= 2.1.0), randomForest, ranger, earth, rmarkdown, nycflights13, RSQLite, methods, DBI, covr, xgboost, Cubist, mlbench, partykit, yaml, parsnip
-# License: GPL-3
-# URL: https://tidymodels.github.io/tidypredict
-# BugReports: https://github.com/tidymodels/tidypredict/issues
-# RoxygenNote: 6.1.1
-# Encoding: UTF-8
-# VignetteBuilder: knitr
-# NeedsCompilation: no
-# Packaged: 2019-09-03 18:15:26 UTC; edgar
-# Author: Edgar Ruiz [aut, cre]
-# Maintainer: Edgar Ruiz <edgar@rstudio.com>
-# Repository: CRAN
-# Date/Publication: 2019-09-03 18:40:02 UTC
