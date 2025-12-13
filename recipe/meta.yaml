@@ -1,4 +1,4 @@
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tidypredict_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tidypredict/tidypredict_{{ version }}.tar.gz
-  sha256: 6b76543e8bd327009768790c2d5368d6b2c5c0ebb487a37c820ea603cbdaad14
+  sha256: 51bd1b80d060ec1245dcc34313ce6b17e7d677f3d2a06aa4ce8057512214f878
 
 build:
   number: 0
