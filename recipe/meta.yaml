@@ -17,15 +17,21 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-cli
     - r-dplyr >=0.7
     - r-generics
+    - r-jsonlite
     - r-knitr
     - r-purrr
     - r-rlang >=1.1.1
@@ -36,6 +42,7 @@ requirements:
     - r-cli
     - r-dplyr >=0.7
     - r-generics
+    - r-jsonlite
     - r-knitr
     - r-purrr
     - r-rlang >=1.1.1
